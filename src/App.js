@@ -25,12 +25,15 @@ class App extends Component {
       { data: [...this.state.data , todoItem] }
     )
 
-    console.log('test here ')
+    console.log(data) 
+  }
+  
+  getTextFromInput(){
+    this.setState({})
   }
 
-
   render(){
-
+ 
   console.log(this.state.data)
   const todoItems = this.state.data.map(item => <TodoItem key={item.id} item={item} />)
 
@@ -40,12 +43,12 @@ class App extends Component {
         <span> 
           {todoItems}
         </span> 
+        {/* <input placeholder="test" type="text" onChange={this.item.id} /> */}
         <input placeholder="test" type="text" />
         <button onClick={this.handleBtn} />
       </div>
     )
   }
 }
-
 
 export default App
