@@ -8,28 +8,40 @@ class App extends Component {
     super()
     this.state = {
       data: todosData,
-      inputText: ""
+      inputText: "",
+      id: 1
     }
 
-    this.handleBtn = this.handleBtn.bind(this)
+    this.handleBtnClick = this.handleBtnClick.bind(this)
+    this.getTextFromInput = this.getTextFromInput.bind(this)
   }
 
-  handleBtn(){
+  handleBtnClick(id){
     const todoItem = {
-        id: 6,
+        id: (this.setState(prevState => {
+          let itemId = this.state.id
+          itemId = itemId++
+        })),
         text: this.state.inputText,
         completed: false
     }
+    console.log(todoItem)
 
-    this.setState(
-      { data: [...this.state.data , todoItem] }
+    this.setState({ 
+      data: [...this.state.data , todoItem],
+      id: this.state.data
+      }
     )
 
-    console.log(data) 
+    console.log('handleBtnClick was ran')
   }
   
-  getTextFromInput(){
-    this.setState({})
+  getTextFromInput(e){
+    console.log(e.target.value)
+    this.setState({
+      inputText: e.target.value
+      }
+    )
   }
 
   render(){
@@ -43,9 +55,8 @@ class App extends Component {
         <span> 
           {todoItems}
         </span> 
-        {/* <input placeholder="test" type="text" onChange={this.item.id} /> */}
-        <input placeholder="test" type="text" />
-        <button onClick={this.handleBtn} />
+        <input placeholder="test" type="text" onChange={this.getTextFromInput} />
+        <button onClick={this.handleBtnClick} />
       </div>
     )
   }
