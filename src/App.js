@@ -1,65 +1,54 @@
-import React, {Component} from 'react'
+import React from 'react';
 import './styles/App.css'
-import todosData from './Data/todosData'
-import TodoItem from './Components/TodoItem'
 
-class App extends Component {
-  constructor(){
-    super()
-    this.state = {
-      data: todosData,
-      inputText: "",
-      id: 1
-    }
+let itemsList = []
 
-    this.handleBtnClick = this.handleBtnClick.bind(this)
-    this.getTextFromInput = this.getTextFromInput.bind(this)
-  }
+function RenderItems(){
+  return (
+    <div> 
+      <h3>List here: {itemsList[0]}</h3>
 
-  handleBtnClick(id){
-    const todoItem = {
-        id: (this.setState(prevState => {
-          let itemId = this.state.id
-          itemId = itemId++
-        })),
-        text: this.state.inputText,
-        completed: false
-    }
-    console.log(todoItem)
-
-    this.setState({ 
-      data: [...this.state.data , todoItem],
-      id: this.state.data
-      }
-    )
-
-    console.log('handleBtnClick was ran')
-  }
-  
-  getTextFromInput(e){
-    console.log(e.target.value)
-    this.setState({
-      inputText: e.target.value
-      }
-    )
-  }
-
-  render(){
- 
-  console.log(this.state.data)
-  const todoItems = this.state.data.map(item => <TodoItem key={item.id} item={item} />)
-
-    return(
-      <div className='App'>
-        <h1> todos </h1>
-        <span> 
-          {todoItems}
-        </span> 
-        <input placeholder="test" type="text" onChange={this.getTextFromInput} />
-        <button onClick={this.handleBtnClick} />
-      </div>
-    )
-  }
+    </div> 
+  )
 }
+
+
+function App(){
+
+  function handleInput(e) {
+    console.log('Handling the input')
+
+    let todoItem = e.target.value
+
+    console.log(todoItem)
+    
+
+  }
+
+  function handleNewBtn(todoItem){
+    console.log('Button was pressed => todo item')
+    console.log(todoItem)
+    
+    itemsList.push({todoItem})
+
+    console.log(itemsList)
+  }
+
+
+  return (
+    <div className="App"> 
+      To do App
+
+      <input type='text' placeholder="Enter item here" onChange={handleInput}/> 
+      <button onClick={handleNewBtn}> New item </button> 
+      
+      <RenderItems />
+
+    </div> 
+  )
+}
+
+
+
 
 export default App
