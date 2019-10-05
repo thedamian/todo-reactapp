@@ -1,12 +1,22 @@
 import React from 'react'
 
-function TodoItem(props){
-    return (
-      <div className="row" id={props.id + 1}> 
-        <input type="checkbox" checked={props.item.completed} onChange={() => console.log('checkbox clicked')}/> 
-        <p>{props.item.text}</p>
+class TodoItem extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+
+    }
+  }
+
+  render(){
+    return(
+      <div className="row" id={this.props.id}> 
+        {/* <input type="checkbox" checked={props.item.completed} onChange={props.item.completed}/>  */}
+        <p>{this.props.item.text}</p>
+        <button onClick={() => this.props.onDelete}>X</button>
       </div>
     )
+  }
 }
 
 export default TodoItem
