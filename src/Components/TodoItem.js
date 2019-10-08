@@ -11,9 +11,11 @@ class TodoItem extends React.Component {
   render(){
     return(
       <div className="row" id={this.props.id}> 
-        {/* <input type="checkbox" checked={props.item.completed} onChange={props.item.completed}/>  */}
-        <p>{this.props.item.text}</p>
-        <button onClick={this.props.onDelete}>X</button>
+        {/* <input type="checkbox" checked={this.props.item.completed} onChange={this.props.onDelete.bind(this, this.props.item.id)}/>  */}
+        {/* <input type="checkbox" checked={this.props.item.completed} onChange={this.props.onDelete.bind(this, this.props.item)}/>  */}
+        {/* <input type="checkbox" checked={this.props.item.completed} onChange={this.item.completed = true}/>  */}
+        <p style={this.props.item.completed ? {color: 'red'} : {color: 'white'}} onclick={this.props.item.completed = true}>{this.props.item.text}</p>
+        <button onClick={this.props.onDelete.bind(this, this.props.item.id)}>X</button>
       </div>
     )
   }

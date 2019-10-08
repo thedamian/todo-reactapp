@@ -15,11 +15,12 @@ class App extends Component {
     this.handleBtnClick = this.handleBtnClick.bind(this)
     this.getTextFromInput = this.getTextFromInput.bind(this)
     this.handlesDelete = this.handlesDelete.bind(this)
+
+    let oldTodoArray = this.state.todoArray
   }
 
-  handlesDelete = () => {
-    console.log('delete item')
-  }
+  
+
 
   render(){
  
@@ -28,18 +29,19 @@ class App extends Component {
 
     return(
       <div className='App'>
-        <h1> todos </h1>
+        <h1> items </h1>
         <span> 
           {todoItems}
         </span> 
-        <input placeholder="test" type="text" onChange={this.getTextFromInput} />
-        <button onClick={this.handleBtnClick} />
+        <div className="row"> 
+          <input placeholder="test" type="text" id="input" onChange={this.getTextFromInput} />
+          <button onClick={this.handleBtnClick} >Add Item</button>
+        </div> 
       </div>
     )
   }
 
      getTextFromInput(e) {
-       console.log(e.target.value)
        this.setState({
          inputText: e.target.value
        })
@@ -53,11 +55,18 @@ class App extends Component {
       }
       console.log(todoItem)
 
+      document.getElementById('input').value = ''
+      
       this.setState({
         todoArray: [...this.state.todoArray, todoItem],
       })
       console.log(this.state.todoArray)
     }
+
+     handlesDelete = (item) => {
+       console.log(item)
+      //  item.completed = true
+     }
 
     
 
