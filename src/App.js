@@ -8,19 +8,16 @@ class App extends Component {
     super()
     this.state = {
       // data: todosData,
+      id: '',
       todoArray: [],
-      inputText: '',
-      id: ''
+      inputText: ''
+      
     }
     this.handleBtnClick = this.handleBtnClick.bind(this)
     this.getTextFromInput = this.getTextFromInput.bind(this)
     this.handlesDelete = this.handlesDelete.bind(this)
 
-    let oldTodoArray = this.state.todoArray
   }
-
-  
-
 
   render(){
  
@@ -49,9 +46,10 @@ class App extends Component {
 
     handleBtnClick() {
       const todoItem = {
+        id: Date.now(),
         text: this.state.inputText,
         completed: false,
-        id: Date.now()
+        
       }
       console.log(todoItem)
 
@@ -63,9 +61,35 @@ class App extends Component {
       console.log(this.state.todoArray)
     }
 
-     handlesDelete = (item) => {
-       console.log(item)
-      //  item.completed = true
+     handlesDelete = (id) => {
+       console.log(id)
+
+       
+
+       let holdArray = this.state.todoArray
+      //  let itemToRemove = holdArray.findIndex({id: id})
+
+      for (var i = 0; i < holdArray.length; i++){
+        var item = holdArray[i]
+        
+
+        if (item.indexOf(item.id !== id)){
+        } console.log(holdArray)
+      }
+
+      //  console.log(itemToRemove)
+      //  let holdArrayMinusRemovedItem = holdArray.splice(holdArray.indexOf(id), 1)
+      //  let holdArrayMinusRemovedItem = holdArray.filter(el => el !== id)
+       let holdArrayMinusRemovedItem = holdArray.splice(id, 1)
+      
+
+       console.log(holdArray)
+       console.log(holdArrayMinusRemovedItem)
+
+       this.setState({
+         todoArray: holdArrayMinusRemovedItem
+       })
+
      }
 
     
