@@ -76,7 +76,8 @@ class App extends Component {
         if (item.indexOf(item.id !== id)){
         } console.log(holdArray)
       }
-
+ 
+      
       //  console.log(itemToRemove)
       //  let holdArrayMinusRemovedItem = holdArray.splice(holdArray.indexOf(id), 1)
       //  let holdArrayMinusRemovedItem = holdArray.filter(el => el !== id)
