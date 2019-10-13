@@ -1,11 +1,87 @@
+body {
+  background: linear-gradient(-45deg, #0F2027, rgb(20, 36, 41), #000, #141E30, #16222A);
+  animation: gradientBG 15s ease infinite;
+
+  background-size: 400% 400%;
+	animation: gradientBG 15s ease infinite;
+}
+
 .App {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  /* justify-content: space-between; */
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
+  color: #585858;
+  font-size: 40px;
+}
+
+.todoInput{
+  /* margin-top: 20rem; */
+}
+
+.todoInput > input {
+  color: #c5c5c5;
+  background-color: transparent;
+  border-width: 0 0 2px;
+  border-color: blue;
+
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #03a8f45e;
+  padding: 5px 15px;
+  outline: none;
+}
+
+[placeholder]:focus::-webkit-input-placeholder {
+  transition: text-indent 0.4s 0.4s ease;
+  text-indent: -100%;
+  opacity: 1;
+}
+
+button {
   color: white;
+  background-color: transparent;
+  border: 0;
+}
+
+.todoItem {
+  width: 400px;
+  justify-content: space-between;
+}
+
+.plus,
+.minus {
+  color: #a09f9f;
+}
+
+.plus:focus {
+  outline: none;
+}
+
+.plus:hover {
+  color: #717171;
+}
+
+.minus:focus {
+  outline: none;
 }
 
 
+@keyframes gradientBG {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+footer {
+  font-size: 12px;
+}

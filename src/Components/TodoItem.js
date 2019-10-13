@@ -3,27 +3,39 @@ import React from "react";
 class TodoItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      clicked: false
+    };
+
+    this.strikeItem = this.strikeItem.bind(this);
+  }
+
+  strikeItem() {
+    this.setState({
+      clicked: true
+    });
+    console.log(this.state.clicked);
   }
 
   render() {
+
+    console.log(this.props.item);
     let todoItem = this.props.item;
 
-    function strikeItem() {
-      todoItem.completed = !todoItem.completed;
-      console.log(todoItem.completed);
-    }
-
     return (
-      <div className="row" id={this.props.id}>
+      <div className="row todoItem" id={this.props.id}>
         <span
-          onClick={strikeItem}
-          style={{ color: todoItem.completed ? "green" : "red" }}
+          onClick={this.strikeItem}
+          style={
+            this.state.clicked
+              ? { textDecorationLine: "line-through" }
+              : { color: "#c5c5c5" }
+          }
         >
           {todoItem.text}
         </span>
         <button onClick={this.props.onDelete.bind(this, this.props.item.id)}>
-          X
+          <span className="minus">-</span>
         </button>
       </div>
     );

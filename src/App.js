@@ -8,7 +8,6 @@ class App extends Component {
     super();
     this.state = {
       // data: todosData,
-      id: "",
       todoArray: [],
       inputText: ""
     };
@@ -24,17 +23,19 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1> items </h1>
-        <span>{todoItems}</span>
-        <div className="row">
+        <div className="row todoInput">
           <input
-            placeholder="test"
+            placeholder="To Do"
             type="text"
-            id="input"
+            id="inp"
             onChange={this.getTextFromInput}
           />
-          <button onClick={this.handleBtnClick}>Add Item</button>
+          <button onClick={this.handleBtnClick} className="plus">
+            +
+          </button>
         </div>
+        {todoItems}
+        {/* <footer> by Jonathan Sanchez </footer> */}
       </div>
     );
   }
@@ -52,7 +53,7 @@ class App extends Component {
       completed: false
     };
 
-    document.getElementById("input").value = "";
+    document.getElementById("inp").value = "";
 
     this.setState({
       todoArray: [...this.state.todoArray, todoItem]
