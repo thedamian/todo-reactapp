@@ -1,4 +1,5 @@
 # Slick todo App in React
+* [Visit Live project in S3 AWS](http://todoappreact.s3-website-us-east-1.amazonaws.com/)
 
 ![Todo in React](/screenshot.png)
 
@@ -10,7 +11,7 @@ Some sites using this project :
 * [Bootstrap 4 : Styling and layout](https://getbootstrap.com/)
 
 
-* [Visit Live project in S3 AWS](http://todoappreact.s3-website-us-east-1.amazonaws.com/)
+
 
 ## To Run Project
 
