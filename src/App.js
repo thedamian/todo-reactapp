@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import "./styles/App.css";
-// import todosData from './Data/todosData'
-import TodoItem from "./Components/TodoItem";
+import TodoItem from "./components/TodoItem";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      // data: todosData,
       todoArray: [],
       inputText: ""
     };
@@ -27,15 +25,15 @@ class App extends Component {
           <input
             placeholder="To Do"
             type="text"
-            id="inp"
+            id="inputField"
             onChange={this.getTextFromInput}
+            value={this.state.inputText}
           />
           <button onClick={this.handleBtnClick} className="plus">
             +
           </button>
         </div>
         {todoItems}
-        {/* <footer> by Jonathan Sanchez </footer> */}
       </div>
     );
   }
@@ -53,29 +51,23 @@ class App extends Component {
       completed: false
     };
 
-    document.getElementById("inp").value = "";
-
     this.setState({
+      inputText: "",
       todoArray: [...this.state.todoArray, todoItem]
     });
   }
 
   handlesDelete = id => {
-    // assign variable to state.todoArray
     let defaultArray = this.state.todoArray;
 
-    // find the index of each item in the defaultArray
     for (let i = 0; i < defaultArray.length; i++) {
       let todoItem = defaultArray[i];
 
-      // check if the item in Default array equals to the passed ID
       if (todoItem.id === id) {
-        // remove the item that equals that ID
         defaultArray.splice(i, 1);
       }
     }
 
-    // put in the new default array in side of todoArray in side of STATE
     this.setState({
       todoArray: defaultArray
     });

@@ -85,3 +85,8 @@ button {
 footer {
   font-size: 12px;
 }
+
+.strike-item {
+  text-decoration: line-through;
+}
+

@@ -14,22 +14,22 @@ class TodoItem extends React.Component {
     this.setState({
       clicked: true
     });
-    console.log(this.state.clicked);
   }
 
   render() {
-
-    console.log(this.props.item);
     let todoItem = this.props.item;
+
+
+
 
     return (
       <div className="row todoItem" id={this.props.id}>
         <span
           onClick={this.strikeItem}
-          style={
+          className={
             this.state.clicked
-              ? { textDecorationLine: "line-through" }
-              : { color: "#c5c5c5" }
+              ? "strike-item"
+              : "text-white"
           }
         >
           {todoItem.text}
