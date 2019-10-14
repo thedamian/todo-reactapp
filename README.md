@@ -1,6 +1,6 @@
-# STARWARS SHIPS API React practice
+# Slick todo App in React
 
-![Starwars ships](/src/screenshot.png)
+![Todo in React](/screenshot.png)
 
 ## Technologies Used: 
 
